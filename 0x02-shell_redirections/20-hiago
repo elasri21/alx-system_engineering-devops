@@ -1,0 +1,5 @@
+#!/bin/bash
+echo -n "Enter input: "
+read input
+output="${input//c}"
+output="${output//C}"

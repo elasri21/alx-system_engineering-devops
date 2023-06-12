@@ -1,0 +1,5 @@
+#!/bin/bash
+users=$(awk -F: '{print $1}' /etc/passwd)
+home_dirs=$(awk -F: '{print $6}' /etc/passwd)
+sorted_users=($(echo "${users[@]}" | tr ' ' '\n' | sort))
+sorted_home_dirs=($(echo "${home_dirs[@]}" | tr ' ' '\n' | sort))

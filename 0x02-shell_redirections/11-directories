@@ -1,0 +1,3 @@
+#!/bin/bash
+count=$(find . -type d | wc -l)
+count=$((count - 1))
