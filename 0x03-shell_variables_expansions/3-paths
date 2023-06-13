@@ -1,0 +1,4 @@
+#!/bin/bash
+IFS=":" read -ra directories <<< "$PATH"
+count=${#directories[@]}
+echo "Number of directories in the PATH: $count

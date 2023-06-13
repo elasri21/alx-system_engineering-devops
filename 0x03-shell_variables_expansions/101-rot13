@@ -1,0 +1,74 @@
+#!/bin/bash
+function encode_rot13() {
+    local input=$1
+    local output=""
+
+    for (( i=0; i<${#input}; i++ )); do
+        char=${input:i:1}
+        ascii_val=$(printf "%d" "'$char")
+        if (( ascii_val >= 65 && ascii_val <= 90 )); then
+            # Uppercase letters
+            ascii_val=$(((ascii_val - 65 + 13) % 26 + 65))
+        elif (( ascii_val >= 97 && ascii_val <= 122 )); then
+            # Lowercase letters
+            ascii_val=$(((ascii_val - 97 + 13) % 26 + 97))
+        fi
+        output+=`printf "\\$(printf '%03o' "$ascii_val")"`
+    done
+
+    echo $output
+}
+
+# Function to decode text using ROT13
+function decode_rot13() {
+    local input=$1
+    local output=""
+
+    for (( i=0; i<${#input}; i++ )); do
+        char=${input:i:1}
+        ascii_val=$(printf "%d" "'$char")
+        if (( ascii_val >= 65 && ascii_val <= 90 )); then
+            # Uppercase letters
+            ascii_val=$(((ascii_val - 65 + 13) % 26 + 65))
+        elif (( ascii_val >= 97 && ascii_val <= 122 )); then
+            # Lowercase letters
+            ascii_val=$(((ascii_val - 97 + 13) % 26 + 97))
+        fi
+        output+=`printf "\\$(printf '%03o' "$ascii_val")"`
+    done
+
+    echo $output
+}
+
+# Main script
+
+echo "ROT13 Text Encoder/Decoder"
+
+while true; do
+    echo "1. Encode"
+    echo "2. Decode"
+    echo "3. Exit"
+    read -p "Enter your choice: " choice
+
+    case $choice in
+        1)
+            read -p "Enter text to encode: " text
+            encoded_text=$(encode_rot13 "$text")
+            echo "Encoded text: $encoded_text"
+            ;;
+        2)
+            read -p "Enter text to decode: " text
+            decoded_text=$(decode_rot13 "$text")
+            echo "Decoded text: $decoded_text"
+            ;;
+        3)
+            echo "Exiting..."
+            exit 0
+            ;;
+        *)
+            echo "Invalid choice. Please try again."
+            ;;
+    esac
+
+    echo
+done
