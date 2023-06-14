@@ -1,0 +1,14 @@
+#!/bin/bash
+LOG_FILE="access.log"
+awk -F '\t' '
+{
+  count[$1]++
+}
+END {
+  printf "%-20s %s\n", "Host/IP Address", "Number of Requests"
+  printf "---------------------------------------\n"
+  
+  for (ip in count) {
+    printf "%-20s %d\n", ip, count[ip]
+  }
+}' "$LOG_FILE" | sort -nrk 2 | head -n 11

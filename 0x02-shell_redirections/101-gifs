@@ -1,0 +1,17 @@
+#!/bin/bash
+list_gif_files() {
+    local directory=$1
+    for entry in "$directory"/*; do
+        if [[ -f "$entry" ]]; then
+            if [[ "${entry,,}" == *.gif ]]; then
+                file_name=$(basename -- "$entry")
+                file_name="${file_name%.*}"
+                echo "$file_name"
+            fi
+        elif [[ -d "$entry" ]]; then
+            list_gif_files "$entry"
+        fi
+    done
+}
+list_gif_files "."
+echo
