@@ -1,3 +1,2 @@
 #!/bin/bash
-count=$(find . -type d | wc -l)
-count=$((count - 1))
+find . -type d -not -path '*/\.*'
