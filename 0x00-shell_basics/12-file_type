@@ -1,2 +1,2 @@
 #!/bin/bash
-ech "/tmp/iamafile: " file -b /tmp/iamafile
+file /tmp/iamafile
