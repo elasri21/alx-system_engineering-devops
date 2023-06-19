@@ -1,2 +1,2 @@
 #!/bin/bash
-awk 'NR % 2 == 1' < input.txt
+sed -n 'p;n' input.txt
