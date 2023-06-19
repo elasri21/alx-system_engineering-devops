@@ -1,2 +1,2 @@
 #!/bin/bash
-sed -n "p;n" input.txt
+sed -n "$(echo 'p\nn')" "$1"
