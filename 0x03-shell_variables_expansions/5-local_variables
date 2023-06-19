@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$(declare -F)"
+echo "$(declare)"
