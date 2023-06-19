@@ -1,3 +1,2 @@
 #!/bin/bash
-output=$(env)
-cho "$output"
+echo $(env)
