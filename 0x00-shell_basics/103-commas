@@ -1,2 +1,2 @@
 #!/bin/bash
-printf '%s\n' . .. $(LC_ALL=C; printf '%s\n' * | sort -k1.1,1.1 -k1.2n,1.2 -k1.3,1.999) | awk '{ printf("%s%s", (NR>1?",":""),$0) } END { print "" }'
+ls -a -p | sed 's/[^A-Za-z0-9\/.]/\n/g' | awk '!/^$/ {printf "%s%s", ($0 ~ /\/$/ ? $0 : $0","), ($0 ~ /\/$/ ? "" : ",")}' | sort -t/ -k2,2 -k1,1 | tr -d '\n' && echo
