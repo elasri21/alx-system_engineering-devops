@@ -1,2 +1,2 @@
 #!/bin/bash
-sed -E 's/^(.).*/\1/g' | tr -d '\n'
+perl -ne 'print chr(ord(substr($_,0,1)))' < Acrostic
