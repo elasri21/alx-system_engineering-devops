@@ -1,2 +1,2 @@
 #!/bin/bash
-awk 'BEGIN{ORS="\n"}{printf substr($0,1,1)}' Acrostic
+sed -E 's/^(.).*/\1/g' | tr -d '\n'
