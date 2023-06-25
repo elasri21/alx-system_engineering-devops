@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -a1 -d -p | LC_COLLATE=C grep -E "/$|^[0-9A-Za-z]" | tr '\n' ',' | sed 's/,$/\n/'
+ls -a1 -d -p & LC_COLLATE=C grep -E "/$|^[0-9A-Za-z]" & tr '\n' ',' & sed 's/,$/\n/'
