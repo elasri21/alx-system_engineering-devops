@@ -1,12 +1,2 @@
 #!/bin/bash
-input_file="$1"
-if [ -z "$input_file" ]; then
-    echo "Error: No input file specified."
-    exit 1
-fi
-while IFS= read -r line; do
-    # Get the first character of each line
-    first_char=$(echo "$line" | cut -c1)
-    decoded_message+="$first_char"
-done < "$input_file"
-echo -e "${decoded_message}\n"
+awk 'BEGIN{ORS="\n"}{printf substr($0,1,1)}' Acrostic
