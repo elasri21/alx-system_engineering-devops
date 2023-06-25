@@ -1,18 +1,2 @@
 #!/bin/bash
-# Read input words into an array
-read -p "Enter a list of words: " -a words
-
-# Declare an associative array to store word frequencies
-declare -A frequencies
-
-# Count the frequency of each word
-for word in "${words[@]}"; do
-  ((frequencies[$word]++))
-done
-
-# Print words that appear exactly once
-for word in "${words[@]}"; do
-  if [ "${frequencies[$word]}" -eq 1 ]; then
-    echo "$word"
-  fi
-done
+tr ' ' '\n' | sort | uniq -c | awk '$1 == 1 {print $2}'
