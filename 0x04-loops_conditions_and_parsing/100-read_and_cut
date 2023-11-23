@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# print info from a file
+file="/etc/passwd/"
+if [ -e "$file" ]
+then
+while IFS=: read -r username _ userid _ homedir _
+do
+echo "$username:$userif:$homedir"
+done < "$file"
+fi
