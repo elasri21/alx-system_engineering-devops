@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # prints a clock
 h=0
-while [ $h -le 12 ]
+while [ $h -le 13 ]
 do
 m=0
 echo "Hour: "$h
-while [ $m -lt 60 ]
+while [ $m -le 59 ]
 do
 echo $m 
 m=$(( m + 1 ))
