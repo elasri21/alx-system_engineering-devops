@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# prints all files an d directory
+
+for file in *
+do
+if [[ $file != .* ]]
+then
+name=$(echo "$file" | cut -d'-' -f2-)
+echo "$name"
+fi
+done
