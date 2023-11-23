@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # prints a clock
 h=0
-while [ $h -le 13 ]
+while [ $h -le 12 ]
 do
 m=0
 echo "Hour: "$h
@@ -11,4 +11,10 @@ echo $m
 m=$(( m + 1 ))
 done
 h=$(( h + 1 ))
+done
+m=0
+while [ $m -le 59 ]
+do
+echo $m
+m=$(( m + 1 ))
 done
