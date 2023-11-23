@@ -3,7 +3,7 @@
 h=0
 while [ $h -le 12 ]
 do
-m=0
+m=1
 echo "Hour: "$h
 while [ $m -le 59 ]
 do
@@ -11,10 +11,4 @@ echo $m
 m=$(( m + 1 ))
 done
 h=$(( h + 1 ))
-done
-m=0
-while [ $m -le 59 ]
-do
-echo $m
-m=$(( m + 1 ))
 done
