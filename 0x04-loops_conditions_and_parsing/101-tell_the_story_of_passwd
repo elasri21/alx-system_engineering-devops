@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# tells the story of password
+while IFS= read -r conts
+do
+user=$(echo "$conts" | cut -f 1 -d ':')
+pass=$(echo "$conts" | cut -f 2 -d ':')
+uid=$(echo "$conts" | cut -f 3 -d ':')
+gid=$(echo "$conts" | cut -f 4 -d ':')
+u_info=$(echo "$conts" | cut -f 5 -d ':')
+home=$(echo "$conts" | cut -f 6 -d ':')
+command=$(echo "$conts" | cut -f 7 -d ':')
+echo -n "The user $user is part of the $gid gang, "
+echo -n "lives in $home and rides $command."
+echo -n " $uid's place is protected by the passcode $pass, "
+echo "more info about the user here: $u_info"
+done < "/etc/passwd"
