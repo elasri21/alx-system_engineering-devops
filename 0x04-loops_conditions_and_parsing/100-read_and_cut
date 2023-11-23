@@ -5,6 +5,6 @@ if [ -e "$file" ]
 then
 while IFS=: read -r username _ userid _ homedir _
 do
-echo "$username:$userif:$homedir"
+echo "$username:$userid:$homedir"
 done < "$file"
 fi
