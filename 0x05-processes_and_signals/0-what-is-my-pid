@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# get the script id
+echo $$
