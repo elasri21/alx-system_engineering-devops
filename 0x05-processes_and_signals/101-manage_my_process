@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Do so many thing in one place
-if [ "${1}" == "start"]
+if [ "${1}" == "start" ]
 then
 ./manage_my_process &
 touch /var/run/my_process.pid
@@ -21,3 +21,4 @@ echo "$!" > /var/run/my_process.pid
 echo "manage_my_process restarted"
 else
 echo "Usage: manage_my_process {start|stop|restart}"
+fi
