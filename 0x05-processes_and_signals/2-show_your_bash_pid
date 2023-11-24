@@ -1,0 +1,3 @@
+##!/usr/bin/env bash
+# shows user bash id
+ps aux --forest | grep bash
