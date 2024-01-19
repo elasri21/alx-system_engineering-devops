@@ -5,7 +5,7 @@ class { 'python':
 }
 
 package { 'python3-pip':
-  ensure => installed,
+  ensure => '3.8.10',
 }
 
 exec { 'install_flask':
