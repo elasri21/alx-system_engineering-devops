@@ -1,11 +1,8 @@
 #!/usr/bin/pup
 # installs flask using puppet
-class { 'python':
-  version => 'system',
-}
-
-package { 'python3-pip':
-  ensure => '3.8.10',
+package { 'flask':
+  ensure   => '2.1.0',
+  provider => 'pip3',
 }
 
 exec { 'install_flask':
