@@ -1,6 +1,6 @@
 # kills a process
 exec { 'pkill':
-  command     => '/usr/bin/pkill killmenow',
+  command     => 'pkill killmenow',
   provider    => 'shell',
   refreshonly => true,
 }
