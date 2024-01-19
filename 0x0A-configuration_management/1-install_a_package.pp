@@ -1,0 +1,6 @@
+# installs flash using puppet
+exec { 'install_flash':
+  command => '/usr/bin/pip3 install flash=2.1.0',
+  path    => ['/usr/bin'],
+  require => Package['python3-pip'],
+}
