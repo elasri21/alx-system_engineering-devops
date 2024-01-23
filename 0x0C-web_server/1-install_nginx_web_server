@@ -2,5 +2,5 @@
 # Installs Nginx and add a file
 apt-get update
 apt-get install -y nginx
-sudo bash -c 'echo "Hello World!" > /var/www/html/index.html'
+sudo bash -c 'echo "Hello World!" > /var/www/index.html'
 service nginx start
