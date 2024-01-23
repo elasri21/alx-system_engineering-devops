@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
 # contains a command that used to fix some essues
+service apache2 start
