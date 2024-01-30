@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Using what is in task 0, and makethe fix short and sweet
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+service nginx start
+rm /run/nginx.pid
