@@ -14,7 +14,7 @@ defaults
     timeout server 50s
 
 frontend https
-    bind *:443 ssl crt /etc/letsencrypt/live/www.beststudent.tech/fullchain.pem
+    bind *:443 ssl crt /etc/haproxy/certs/mycert.pem
     default_backend backend_servers
 
 backend backend_servers
