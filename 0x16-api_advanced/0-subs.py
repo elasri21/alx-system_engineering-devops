@@ -4,14 +4,14 @@ the number of subscribers"""
 
 
 def number_of_subscribers(subreddit):
-    """queries the Reddit API and returns the number of subscribers
-    Args:
-        subreddit: subreddit argument"""
-    import requests
-    user = {'User-Agent': 'My-User-Agent'}
-    url = requests.get('https://www.reddit.com/r/{}/about.json'
-                       .format(subreddit), headers=user).json()
+    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    headers = {'User-Agent': 'Mozilla/5.0'}
     try:
-        return url.get('data').get('subscribers')
-    except Exception:
+        response = requests.get(url, headers=headers)
+        data = response.json()
+        if 'data' in data and 'subscribers' in data['data']:
+            return data['data']['subscribers']
+        else:
+            return 0
+    except Exception as e:
         return 0
