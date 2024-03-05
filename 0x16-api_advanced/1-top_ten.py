@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """contains the function top_ten"""
 import requests
-from sys import argv
 
 
 def top_ten(subreddit):
@@ -14,7 +13,3 @@ def top_ten(subreddit):
             print(post.get('data').get('title'))
     except Exception:
         print(None)
-
-
-if __name__ == "__main__":
-    top_ten(argv[1])
