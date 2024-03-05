@@ -8,10 +8,10 @@ def number_of_subscribers(subreddit):
     Args:
         subreddit: subreddit argument"""
     import requests
-    info = requests.get("https://www.reddit.com/r/{}/about.json"
-                        .format(subreddit),
-                        headers={"User-Agent": "My-User-Agent"},
-                        allow_redirects=False)
-    if info.status_code >= 300:
+    user = {'User-Agent': 'My-User-Agent'}
+    url = requests.get('https://www.reddit.com/r/{}/about.json'
+                       .format(subreddit), headers=user).json()
+    try:
+        return url.get('data').get('subscribers')
+    except Exception:
         return 0
-    return info.json().get("data").get("subscribers")
